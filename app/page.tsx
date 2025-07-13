@@ -1,103 +1,160 @@
-import Image from "next/image";
-
+import Sidebar from "@/components/Sidebar";
+import { BsGithub, BsLinkedin, BsInstagram } from "react-icons/bs";
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+      <div className="lg:flex lg:justify-between lg:gap-8">
+        <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
+          <div className="">
+            <h1 className="text-4xl font-bold tracking-tight text-default sm:text-5xl">
+              <a href="/">Aphiwat Chalongtham</a>
+            </h1>
+            <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+              Backend Developer
+            </h2>
+            <p className="mt-4 max-w-xs leading-normal text-gray-500">
+              I build robust, scalable, and secure backend systems that power
+              modern web applications.
+            </p>
+          </div>
+          {/* Sidebar section */}
+          <Sidebar />
+          <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
+            <li className="mr-5 shrink-0 text-xs group">
+              <a
+                className="block hover:text-slate-200"
+                href="https://github.com/Aphiwatch/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="GitHub (opens in a new tab)"
+                title="GitHub"
+              >
+                <BsGithub className="text-4xl group-hover:text-primary transition-all duration-200" />
+              </a>
+            </li>
+            <li className="mr-5 shrink-0 text-xs group">
+              <a
+                className="block hover:text-slate-200"
+                href="https://www.linkedin.com/in/aphiwat-chalongtham-00767b2b3/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="LinkedIn (opens in a new tab)"
+                title="LinkedIn"
+              >
+                <BsLinkedin className="text-4xl group-hover:text-primary transition-all duration-200" />
+              </a>
+            </li>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <li className="mr-5 shrink-0 text-xs group">
+              <a
+                className="block hover:text-slate-200"
+                href="https://www.instagram.com/_aphiwatch1410/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Instagram (opens in a new tab)"
+                title="Instagram"
+              >
+                <BsInstagram className="text-4xl group-hover:text-primary transition-all duration-200" />
+              </a>
+            </li>
+          </ul>
+        </header>
+        <main className="pt-24 lg:w-[52%] lg:py-24">
+          <section
+            id="about"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="About me"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                About
+              </h2>
+            </div>
+            <div>
+              <div className="mb-4">
+                <p className="prose max-w-2xl text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.
+                </p>
+              </div>
+              <div className="mb-4">
+                <p className="prose max-w-2xl text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae. Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Quisquam, quae.Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                  quae.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Quisquam, quae.Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                  quae.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Quisquam, quae.Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                  quae.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Quisquam, quae.Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                  quae.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Quisquam, quae.Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                  quae.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Quisquam, quae.Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                </p>
+              </div>
+            </div>
+          </section>
+          <section
+            id="experience"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="Work experience"
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                Experience
+              </h2>
+            </div>
+            <div className="mb-4">
+                <p className="prose max-w-2xl text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.
+                </p>
+              </div>
+          </section>
+          <section
+            id="project"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="Work experience"
+          >
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+                Project
+              </h2>
+            </div>
+            <div className="mb-4">
+                <p className="prose max-w-2xl text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam, quae.
+                </p>
+              </div>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }
