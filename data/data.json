@@ -60,7 +60,7 @@
     "education": [
         {
             "id": 1,
-            "degree": "Computer Engineering",
+            "degree": "Bachelor degree in Computer Engineering",
             "institute": "Kasetsart University",
             "duration": "2020 - 2024"
         },
@@ -92,10 +92,10 @@
     "project": [
         {
             "id": "1",
-            "name": "Mr. Kiwi",
-            "description": "Is a web application for make better experience for user.",
-            "role": "Software Developer",
-            "duration": "2023 - 2024",
+            "name": "Personal Portfolio",
+            "description": "Portfolio with Next js and Tailwind CSS.",
+            "role": "Developer",
+            "duration": "2025",
             "stack": [
                 {
                     "iconName": "SiNextdotjs",
@@ -104,19 +104,13 @@
                 {
                     "iconName": "SiTailwindcss",
                     "name": "TailwindCSS"
-                },
-                {
-                    "iconName": "SiGo",
-                    "name": "Golang"
                 }
             ],
             "preview_image": [
-                "/portfolio/images/404.png",
-                "/portfolio/images/404.png",
-                "/portfolio/images/404.png"
+                "/portfolio/project/01/projectId_1.avif"
             ],
-            "repository": "https://google.com",
-            "demo": "https://google.com"
+            "repository": "https://github.com/Aphiwatch/portfolio",
+            "demo": ""
         }
     ]
 }

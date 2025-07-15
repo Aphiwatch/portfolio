@@ -4,6 +4,7 @@ import { CiLink } from "react-icons/ci";
 import data from "@/data/data.json";
 import { getIconComponent } from "@/utils/iconMap";
 import PortfolioData from "@/types/portfolio";
+import Image from "next/image";
 
 const portfolioData: PortfolioData = data;
 
@@ -14,10 +15,10 @@ export default function Home() {
         <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
           <div className="">
             <h1 className="text-4xl font-bold tracking-tight text-default sm:text-5xl">
-              <a href="/">Aphiwat Chalongtham</a>
+              <a href="/portfolio">Aphiwat Chalongtham</a>
             </h1>
             <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-              Backend Developer
+              Junior Backend Developer
             </h2>
             <p className="mt-4 max-w-xs leading-normal text-gray-500">
               I build robust, scalable, and secure backend systems that power
@@ -69,7 +70,7 @@ export default function Home() {
         <main className="pt-24 lg:w-[52%] lg:py-24">
           <section
             id="about"
-            className="mb-16 scroll-mt-16 md:mb-4 lg:mb-8 lg:scroll-mt-24"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             aria-label="About me"
           >
             <h2 className="text-xl text-gray-200 font-semibold pb-4 uppercase">
@@ -156,7 +157,7 @@ export default function Home() {
           {/* Experience Section */}
           <section
             id="experience"
-            className="mb-16 scroll-mt-16 md:mb-16 lg:mb-24 lg:scroll-mt-16"
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             aria-label="Work experience"
           >
             <h2 className="text-xl text-gray-200 font-semibold pb-4 uppercase">
@@ -200,7 +201,7 @@ export default function Home() {
             <div className="mt-12">
               <a
                 className="inline-flex items-baseline font-md leading-tight hover:text-primary focus-visible:text-primary font-semibold text-slate-200 group/link text-base"
-                href="/resume.pdf"
+                href="/portfolio/Resume.pdf"
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="View Full Résumé (opens in a new tab)"
@@ -223,13 +224,58 @@ export default function Home() {
               </h2>
             <div className="mb-4">
               <div className="prose max-w-2xl text-slate-400">
-                {portfolioData.project.map((project) => (
-                  <div key={project.name}>
-                    <p>{project.name}</p>
-                    <p>{project.description}</p>
-                  </div>
+                {portfolioData.project.slice(0, 4).map((project) => (
+                  <a
+                  key={project.id} 
+                  href={project.repository || project.demo || "#"}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="p-2 group relative grid gap-4 rounded-lg transition-all md:grid-cols-8 md:gap-x-6 hover:bg-slate-800/50 mt-4 mb-4"
+                  >
+                    <Image
+                      src={project.preview_image[0]}
+                      alt={`${project.name} preview`}
+                      width={240}
+                      height={120}
+                      className="rounded border-2 border-slate-200/10 transition sm:col-span-3 md:col-span-3 object-cover"
+                    />
+                    <div className="md:col-span-4">
+                      <h3 className="mb-2 text-lg font-medium leading-tight text-slate-200">
+                        {project.name}
+                      </h3>
+                      <p className="mt-2 text-sm leading-normal text-slate-400">
+                        {project.description}
+                      </p>
+                      <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+                        {project.stack.map((tech, techIndex) => {
+                          const Icon = getIconComponent[tech.iconName];
+                          return (
+                            <li key={techIndex} className="mr-2 mt-2 text-sm text-primary flex items-center">
+                              {Icon && <Icon className="inline-block mr-1" />}
+                              {tech.name}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </a>
                 ))}
               </div>
+            </div>
+            {/* Full Project */}
+            <div className="mt-12">
+              <a
+                className="inline-flex items-baseline font-md leading-tight hover:text-primary focus-visible:text-primary font-semibold text-slate-200 group/link text-base"
+                href="/portfolio/project"
+                // target="_blank"
+                // rel="noreferrer noopener"
+                aria-label="View all projects"
+              >
+                <span>
+                  View All Projects
+                </span>
+                <CiLink className="ml-2 group-hover/link:translate-x-0.5 transition-transform duration-200 size-4" />
+              </a>
             </div>
           </section>
           {/* blog section */}

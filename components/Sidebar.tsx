@@ -1,26 +1,43 @@
 // components/Sidebar.tsx
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { Link as ScrollLink, scroller } from 'react-scroll';
 
 export default function Sidebar() {
   const [activeSection, setActiveSection] = useState<string>('about');
 
   const menuItems = [
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Experience', href: '#experience', id: 'experience' },
-    { name: 'Project', href: '#project', id: 'project' },
-    { name: 'Blog', href: '#blog', id: 'blog' },
+    { name: 'About', href: 'about', id: 'about' },
+    { name: 'Experience', href: 'experience', id: 'experience' },
+    { name: 'Project', href: 'project', id: 'project' },
+    { name: 'Blog', href: 'blog', id: 'blog' },
   ];
 
-  // ฟังก์ชันสำหรับจัดการเมื่อคลิกเมนู
-  const handleClick = (sectionId: string) => {
-    setActiveSection(sectionId);
-    // Optional: สำหรับ smooth scroll (Next.js Link to hash จะทำ smooth scroll ให้โดย default)
-    // const section = document.getElementById(sectionId);
-    // section?.scrollIntoView({ behavior: 'smooth' });
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollOffset = 100;
+
+      for (let i = menuItems.length - 1; i >= 0; i--) {
+        const item = menuItems[i];
+        const section = document.getElementById(item.id);
+
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= scrollOffset && rect.bottom >= scrollOffset) {
+            setActiveSection(item.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [menuItems]);
 
   return (
     <nav className="bg-background text-gray-400 hidden md:hidden sm:hidden lg:block">
@@ -30,20 +47,23 @@ export default function Sidebar() {
 
           return (
             <li key={item.id} className="mb-4">
-              <Link
-                href={item.href}
-                onClick={() => handleClick(item.id)} // เมื่อคลิก ให้ตั้งค่า activeSection
-                className="group flex items-center"
+              <ScrollLink
+                to={item.id}
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                onSetActive={(to) => setActiveSection(to)}
+                className="group flex items-center cursor-pointer"
               >
-                {/* แถบสีม่วงด้านหน้า (Indicator) */}
+                {/* Indicator */}
                 <span
                   className={`
                     w-1 h-6 rounded-sm mr-3 transition-colors duration-200
                     ${isActive ? 'bg-primary' : 'bg-transparent group-hover:bg-gray-600'}
                   `}
                 ></span>
-
-                {/* ข้อความเมนู */}
+                {/* text */}
                 <span
                   className={`
                     text-lg font-medium transition-colors duration-200
@@ -52,7 +72,7 @@ export default function Sidebar() {
                 >
                   {item.name}
                 </span>
-              </Link>
+              </ScrollLink>
             </li>
           );
         })}
