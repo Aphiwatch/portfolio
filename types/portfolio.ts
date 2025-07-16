@@ -44,7 +44,7 @@ interface Project {
   demo: string;
 }
 
-interface PortfolioData {
+export interface PortfolioData {
   paragraph_1: string;
   paragraph_2: string;
   paragraph_3: string;
