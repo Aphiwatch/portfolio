@@ -248,7 +248,7 @@ export default function Home() {
                       </p>
                       <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
                         {project.stack.map((tech, techIndex) => {
-                          const Icon = getIconComponent[tech.iconName];
+                          const Icon = getIconComponent(tech.iconName);
                           return (
                             <li key={techIndex} className="mr-2 mt-2 text-sm text-primary flex items-center">
                               {Icon && <Icon className="inline-block mr-1" />}
