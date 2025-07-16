@@ -3,7 +3,7 @@ import { BsGithub, BsLinkedin, BsInstagram } from "react-icons/bs";
 import { CiLink } from "react-icons/ci";
 import data from "@/data/data.json";
 import { getIconComponent } from "@/utils/iconMap";
-import PortfolioData from "@/types/portfolio";
+import { PortfolioData } from "@/types/portfolio";
 import Image from "next/image";
 
 const portfolioData: PortfolioData = data;
