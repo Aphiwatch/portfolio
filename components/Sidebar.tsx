@@ -1,18 +1,21 @@
 // components/Sidebar.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Link as ScrollLink, scroller } from 'react-scroll';
+import { useState, useEffect, useMemo } from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
 export default function Sidebar() {
   const [activeSection, setActiveSection] = useState<string>('about');
 
-  const menuItems = [
+  const menuItems = useMemo(
+    () => [
     { name: 'About', href: 'about', id: 'about' },
     { name: 'Experience', href: 'experience', id: 'experience' },
     { name: 'Project', href: 'project', id: 'project' },
     { name: 'Blog', href: 'blog', id: 'blog' },
-  ];
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
